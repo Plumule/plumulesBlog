@@ -1,0 +1,9 @@
+spring:
+  thymeleaf:
+    mode: HTML
+
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/blog?useUnicode=true&characterEncoding=utf-8
+
+#    还是要骂一句，狗屁Git 2020年9月4日00:53:13
