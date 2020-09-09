@@ -1,0 +1,7 @@
+#spring.thymeleaf.mode=HTML5
+spring:
+  thymeleaf:
+    mode: HTML
+  profiles:
+#    指定后缀，无需指定全称（application-dev.yml）
+    active: dev

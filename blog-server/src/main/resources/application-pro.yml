@@ -1,0 +1,29 @@
+#spring.thymeleaf.mode=HTML5
+spring:
+#spring.datasource.url(JDBC)
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://rm-2ze4ff76g0fh63cu15o.mysql.rds.aliyuncs.com:3306/blog?useUnicode=true&characterEncoding=utf-8
+#    spring.datasource.username
+    username: jamielee
+    password: jamielee
+#    spring.jpa.hiibernate.ddl-auto(DDL mode)
+  jpa:
+    hibernate:
+#     数据库操作：默认是 none(表示不需要变动 “表结构”) ，常用的是 update，可以根据实体类的具体职能来设置；
+#      【注】create 代表每次在生产环境清空原有的数据库，重新创建数据库！！！！
+      ddl-auto: none
+#      jpa.show
+    show-sql: true
+#配置日志级别
+logging:
+  level:
+#    直接在上面的 level后面输入日志级别（debug、info等），是全局设置；
+#    下面是根据路径设置，info级别就打印日志到服务器控制台
+    root: warn
+    com.lj: info
+#  指定在下面文件夹下生成对应文件 blog.log （超过10M默认自动切分）
+  file: log/blog-pro.log
+
+server:
+  port: 8081
