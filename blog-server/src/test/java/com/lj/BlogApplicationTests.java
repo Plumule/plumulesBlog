@@ -1,4 +1,4 @@
-package com.lj.blog;
+package com.lj;
 
 import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
