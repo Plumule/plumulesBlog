@@ -11,16 +11,16 @@
 <body>
 
 <!--导航-->
-<!--inverted：反转；padded:内部填充；tb:向下；-->
-<nav th:replace="_fragments :: menu(3)" class="ui inverted attached segment m-padded-tb-mini" >
+<!--inverted：反转；padded:内部填充；tb:向下；fragment在静态页面情况下，是不会被选中的，要通过thymeleaf让它被渲染-->
+<nav th:replace="_fragments :: menu(1)" class="ui inverted attached segment m-padded-tb-mini" >
     <div class="ui container">
         <div class="ui inverted secondary stackable menu">
             <h2 class="ui teal header item">Blog</h2>
-            <a href="#" class="m-item item m-mobile-hide"><i class="home icon"></i>首页</a>
-            <a href="#" class="m-item item m-mobile-hide"><i class="idea icon"></i>分类</a>
-            <a href="#" class="m-item item m-mobile-hide"><i class="tags icon"></i>标签</a>
-            <a href="#" class="m-item item m-mobile-hide"><i class="clone icon"></i>归档</a>
-            <a href="#" class="m-item item m-mobile-hide"><i class="info icon"></i>关于我</a>
+            <a href="#" class="m-item item m-mobile-hide "><i class="home icon"></i>首页</a>
+            <a href="#" class="m-item item m-mobile-hide "><i class="idea icon"></i>分类</a>
+            <a href="#" class="m-item item m-mobile-hide "><i class="tags icon"></i>标签</a>
+            <a href="#" class="m-item item m-mobile-hide "><i class="clone icon"></i>归档</a>
+            <a href="#" class="m-item item m-mobile-hide "><i class="info icon"></i>关于我</a>
             <div class="right m-item item m-mobile-hide">
                 <div class="ui icon input">
                     <input type="text" placeholder="Search...">
@@ -531,7 +531,7 @@
 <br>
 
 <!--底部footer-->
-<footer class="ui inverted vertical segment m-padded-tb-massive">
+<footer th:replace="_fragments :: footer" class="ui inverted vertical segment m-padded-tb-massive">
     <div class="ui center aligned container">
         <div class="ui inverted divided stackable grid">
 <!--            一共有16个列-->
@@ -567,8 +567,11 @@
     </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+<!--下面左右带斜杠星号斜杠符号的注释，在静态页面是注释，在thymeleaf中是有效代码-->
+<!--/*/<th:block th:replace="_fragments :: script">/*/-->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+<!--/*/</th:block>/*/-->
 
 <script>
     $('.menu.toggle').click(function () {
