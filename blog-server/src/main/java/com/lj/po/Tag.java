@@ -13,7 +13,7 @@ public class Tag {
     private Long id;
     private String name;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "tags")
     private List<Blog> blogs = new ArrayList<>();
 
     public Tag() {
@@ -33,6 +33,14 @@ public class Tag {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<Blog> getBlogs() {
+        return blogs;
+    }
+
+    public void setBlogs(List<Blog> blogs) {
+        this.blogs = blogs;
     }
 
     @Override

@@ -1,6 +1,9 @@
 package com.lj.po;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "t_comment")
@@ -14,7 +17,16 @@ public class Comment {
     private String content;
     private String avatar;
     @Temporal(TemporalType.TIMESTAMP)
-    private String createTime;
+    private Date createTime;
+
+    @ManyToOne
+    private Blog blog;
+
+    @OneToMany(mappedBy = "parentComment")
+    private List<Comment> replyComments = new ArrayList<>();
+
+    @ManyToOne
+    private Comment parentComment;
 
     public Comment() {
     }
@@ -59,12 +71,36 @@ public class Comment {
         this.avatar = avatar;
     }
 
-    public String getCreateTime() {
+    public Date getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(String createTime) {
+    public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+    public Blog getBlog() {
+        return blog;
+    }
+
+    public void setBlog(Blog blog) {
+        this.blog = blog;
+    }
+
+    public List<Comment> getReplyComments() {
+        return replyComments;
+    }
+
+    public void setReplyComments(List<Comment> replyComments) {
+        this.replyComments = replyComments;
+    }
+
+    public Comment getParentComment() {
+        return parentComment;
+    }
+
+    public void setParentComment(Comment parentComment) {
+        this.parentComment = parentComment;
     }
 
     @Override

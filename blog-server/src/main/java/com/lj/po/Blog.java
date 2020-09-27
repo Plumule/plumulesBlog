@@ -30,8 +30,14 @@ public class Blog {
     @ManyToOne
     private Type type;
 
-    @ManyToMany
+    @ManyToMany(cascade = {CascadeType.PERSIST})
     private List<Tag> tags = new ArrayList<>();
+
+    @ManyToOne
+    private User user;
+
+    @OneToMany(mappedBy = "blog")
+    private List<Comment> comments = new ArrayList<>();
 
     public Blog() {
     }
@@ -146,6 +152,30 @@ public class Blog {
 
     public void setType(Type type) {
         this.type = type;
+    }
+
+    public List<Tag> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<Tag> tags) {
+        this.tags = tags;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
     }
 
     @Override
