@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
 <!--    device-width：适应设备-->
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>博客管理</title>
+    <title>博客管理登录</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
     <link rel="stylesheet" href="../../static/css/me.css">
 </head>
@@ -22,7 +22,7 @@
                         管理后台登录
                     </div>
                 </h2>
-                <form class="ui large form" method="post" action="#">
+                <form class="ui large form" method="post" action="#" th:action="@{/admin/login}">
                     <div class="ui segment">
                         <div class="field">
                             <div class="ui left icon input">
@@ -36,10 +36,11 @@
                                 <input type="password" name="password" placeholder="密码">
                             </div>
                         </div>
-                        <div class="ui fluid large teal submit button">登   录</div>
+                        <button class="ui fluid large teal submit button">登   录</button>
                     </div>
 
-                    <div class="ui error message"></div>
+                    <div class="ui error mini message"></div>
+                    <div class="ui mini message" th:unless="${#Strings.isEmpty(message)}"></div>
 
                 </form>
 
@@ -53,6 +54,29 @@
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
 <!--/*/</th:block>/*/-->
+
+<script>
+
+    $('.ui.form').form({
+        fields : {
+            username : {
+                identifier:'username',
+                rules:[{
+                    type:'empty',
+                    prompt:'请输入用户名'
+                }]
+            },
+            password : {
+                identifier:'password',
+                rules:[{
+                    type:'empty',
+                    prompt:'请输入密码'
+                }]
+            }
+        }
+    });
+
+</script>
 
 </body>
 </html>

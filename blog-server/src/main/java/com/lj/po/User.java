@@ -11,16 +11,17 @@ public class User {
 
     @Id
     @GeneratedValue
-    private Long id;
-    private String nickname;
-    private String password;
-    private String email;
-    private String avatar;
-    private String type;
+    private Long id;//
+    private String nickname;//
+    private String username;
+    private String password;//
+    private String email;//
+    private String avatar;//
+    private String type;//
     @Temporal(TemporalType.TIMESTAMP)
-    private Date createTime;
+    private Date createTime;//
     @Temporal(TemporalType.TIMESTAMP)
-    private Date updateTime;
+    private Date updateTime;//
 
     @OneToMany(mappedBy = "user")
     private List<Blog> blogs = new ArrayList<>();
@@ -42,6 +43,14 @@ public class User {
 
     public void setNickname(String nickname) {
         this.nickname = nickname;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
@@ -105,12 +114,14 @@ public class User {
         return "User{" +
                 "id=" + id +
                 ", nickname='" + nickname + '\'' +
+                ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
                 ", avatar='" + avatar + '\'' +
                 ", type='" + type + '\'' +
                 ", createTime=" + createTime +
                 ", updateTime=" + updateTime +
+                ", blogs=" + blogs +
                 '}';
     }
 }
