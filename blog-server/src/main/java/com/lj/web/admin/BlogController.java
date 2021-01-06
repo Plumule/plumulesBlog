@@ -10,6 +10,6 @@ public class BlogController {
 
     @GetMapping("/blogs")
     public String blogs(){
-        return "/admin/blogs";
+        return "admin/blogs";
     }
 }
