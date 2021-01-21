@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
 <!--    device-width：适应设备-->
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>博客发布</title>
+    <title>分类新增</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
     <link rel="stylesheet" href="../../static/lib/editormd/css/editormd.min.css">
     <link rel="stylesheet" href="../../static/css/me.css">
 </head>
-<body>JJJJJJ
+<body>
 
 <!--导航-->
 <!--inverted：反转；padded:内部填充；tb:向下；-->
@@ -51,7 +51,7 @@
 <!--中间内容-->
 <div class="m-container-small m-padded-tb-big">
     <div class="ui container">
-        <form action="#" method="post" class="ui form">
+        <form action="#" method="post" th:action="@{/admin/types}" class="ui form">
             <div class="field">
                 <div class="ui left labeled input">
                     <label class="ui teal basic label">名称</label>
@@ -61,7 +61,7 @@
             <div class="ui error message"></div>
             <div class="ui right aligned container">
                 <button type="button" class="ui button" onclick="window.history.go(-1)">返回</button>
-                <button class="ui teal button">提交</button>
+                <button class="ui teal submit button">提交</button>
             </div>
         </form>
     </div>
